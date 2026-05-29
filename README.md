@@ -55,3 +55,37 @@
 - `sudo snap install <paquete>` — instalar via snap
 - `pip3 install -r requirements.txt --break-system-packages` — instalar dependencias Python
 - `curl -I <url>` — ver headers HTTP de un sitio
+## EP6 — Services y systemd (daemons)
+
+### Gestión de servicios
+- `sudo systemctl start <servicio>` — iniciar un servicio
+- `sudo systemctl stop <servicio>` — detener un servicio
+- `sudo systemctl restart <servicio>` — reiniciar un servicio
+- `sudo systemctl reload <servicio>` — recargar config sin reiniciar
+- `sudo systemctl status <servicio>` — ver estado y logs recientes
+- `sudo systemctl enable <servicio>` — arrancar automáticamente al boot
+- `sudo systemctl disable <servicio>` — no arrancar al boot
+- `sudo systemctl enable --now <servicio>` — enable + start en un comando
+
+### Listar servicios
+- `systemctl list-units` — servicios activos
+- `systemctl list-units --all` — todos (activos e inactivos)
+- `systemctl list-unit-files` — archivos de unidad disponibles
+- `systemctl list-units | grep <nombre>` — filtrar por nombre
+
+### Conceptos clave
+- **Daemon** — proceso en segundo plano que ofrece un servicio (sshd, httpd, chronyd)
+- **.service vs .socket** — un servicio puede activarse por socket (bajo demanda) o por servicio directo
+- **systemd** — el sistema de init moderno en Linux, reemplaza al sysv legacy
+
+### Ejemplos prácticos
+```bash
+# Detener SSH (cuidado en remoto)
+sudo systemctl stop ssh
+
+# Ver si Apache está corriendo
+sudo systemctl status httpd
+
+# Hacer que firewalld arranque al boot y se prenda ahora
+sudo systemctl enable --now firewalld
+```
