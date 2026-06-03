@@ -88,4 +88,28 @@ sudo systemctl status httpd
 
 # Hacer que firewalld arranque al boot y se prenda ahora
 sudo systemctl enable --now firewalld
+
+## EP7 — Kill Procesos
+
+- `ps` — procesos del shell actual
+- `ps aux` — todos los procesos del sistema con detalle
+- `ps -ef` — formato alternativo (System V)
+- `top` — monitor de procesos en tiempo real
+- `htop` — versión mejorada de top (requiere instalación)
+- `kill <PID>` — terminar proceso (señal normal)
+- `kill -9 <PID>` — forzar terminación (SIGKILL)
+- `killall <nombre>` — matar procesos por nombre
+
+## EP8 — curl
+
+- `curl <url>` — descarga contenido de una URL
+- `curl -I <url>` — solo muestra los headers
+- `curl -o archivo <url>` — guarda la respuesta en un archivo
+- `curl -O <url>` — guarda con el nombre original del archivo remoto
+- `curl -L <url>` — sigue redirecciones
+- `curl -X POST <url>` — petición POST
+- `curl -X PUT <url>` — petición PUT
+- `curl -X DELETE <url>` — petición DELETE
+- `curl -d "key=value" <url>` — enviar datos en el body
+- `curl -H "Header: valor" <url>` — agregar header personalizado
 ```
